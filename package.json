@@ -1,0 +1,18 @@
+{
+  "name": "cordova-plugin-startapp-ads",
+  "version": "1.0.0",
+  "description": "Cordova StartApp Ads Plugin",
+  "cordova": {
+    "id": "cordova-plugin-startapp-ads",
+    "platforms": [
+      "android"
+    ]
+  },
+  "keywords": [
+    "cordova",
+    "startapp",
+    "ads"
+  ],
+  "author": "Abdul Salam Studio",
+  "license": "MIT"
+}

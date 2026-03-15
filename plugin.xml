@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="cordova-plugin-startapp-ads"
+        version="1.0.0">
+
+    <name>StartAppAds</name>
+
+    <preference name="STARTAPP_APP_ID" default="YOUR_APP_ID"/>
+
+    <js-module src="www/startapp.js" name="StartAppAds">
+        <clobbers target="startapp"/>
+    </js-module>
+
+    <platform name="android">
+
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+
+            <uses-permission android:name="android.permission.INTERNET"/>
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+
+            <meta-data
+                android:name="com.startapp.sdk.APPLICATION_ID"
+                android:value="$STARTAPP_APP_ID"/>
+
+            <activity
+                android:name="com.startapp.sdk.adsbase.StartAppAdActivity"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:theme="@android:style/Theme.Translucent"/>
+
+        </config-file>
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="StartAppAds">
+                <param name="android-package"
+                       value="com.startapp.ads.StartAppAds"/>
+            </feature>
+        </config-file>
+
+        <framework src="com.startapp:inapp-sdk:5.1.0"/>
+
+        <source-file
+            src="src/android/StartAppAds.java"
+            target-dir="src/com/startapp/ads"/>
+
+    </platform>
+
+</plugin>
